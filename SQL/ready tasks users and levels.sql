@@ -1,46 +1,49 @@
-Исходные данные: есть 2 таблицы user и level с соответствующим набором полей. Структура таблиц и значения полей указаны ниже																								
-Таблица - user																								
-id	user_name	level_id	skill		
-CREATE TABLE user (
-    id INT PRIMARY KEY,
-    user_name VARCHAR(255),
-    level_id INT,
-    skill INT,
-    FOREIGN KEY (level_id) REFERENCES level(id)
-);					
-INSERT INTO user (id, user_name, level_id, skill) VALUES
-(1, 'Anton', 1, 900000),
-(2, 'Denis', 3, 4000),
-(3, 'Petr', 2, 50000),
-(4, 'Andrey', 4, 20),
-(5, 'Olga', 1, 600000),
-(6, 'Anna', 1, 1600000);
-														
+Исходные данные: есть 2 таблицы user и level с соответствующим набором полей. 
+Структура таблиц и значения полей указаны ниже:
+																								
+Таблица - user																							
+id            user_name	level_id	skill																		
 1	Anton	1	900000																					
 2	Denis	3	4000																					
 3	Petr	2	50000																					
 4	Andrey	4	20																					
 5	Olga	1	600000																					
 6	Anna	1	1600000																					
-																								
-Таблица - level																								
-id	level_name				
+
+CREATE TABLE user (
+    id INT PRIMARY KEY,
+    user_name VARCHAR(255),
+    level_id INT,
+    skill INT,
+    FOREIGN KEY (level_id) REFERENCES level(id)
+);
+
+INSERT INTO user (id, user_name, level_id, skill) VALUES
+(1, 'Anton', 1, 900000),
+(2, 'Denis', 3, 4000),
+(3, 'Petr', 2, 50000),
+(4, 'Andrey', 4, 20),
+(5, 'Olga', 1, 600000),
+(6, 'Anna', 1, 1600000);																								
+
+Таблица - level																						
+id	level_name																				
+1	admin																							
+2	power_user																							
+3	user																							
+4	guest																							
+
 CREATE TABLE level (
     id INT PRIMARY KEY,
     level_name VARCHAR(255)
-);					
+);
 
 INSERT INTO level (id, level_name) VALUES
 (1, 'admin'),
 (2, 'power_user'),
 (3, 'user'),
-(4, 'guest');
-														
-1	admin																							
-2	power_user																							
-3	user																							
-4	guest																							
-																								
+(4, 'guest');																								
+
 Задания на написание запросов к БД:																								
 1. Отобрать из таблицы user всех пользователей, у которых level_id=1, skill > 799000 и в имени встречается буква а																								
 SELECT * FROM user WHERE level_id=1 AND skill>799000 AND user_name LIKE '%a%';																								
