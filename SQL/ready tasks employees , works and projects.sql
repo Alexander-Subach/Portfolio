@@ -1,10 +1,10 @@
 																																																	
 Employees 																									
-empId employeeName roleEmployess      place	phone 		
-1         Leonid	   Developer           123               55-89076																					
-2         Mark	   Designer	             566	NULL																					
-3         Kate	   Tester	              45	55-34566																					
-4        Martin	    Tester	             678	55-66899	
+empId employeeName roleEmployess      place	  phone 		
+1      Leonid	   Developer           123    55-89076																					
+2       Mark	   Designer	           566	  NULL																					
+3       Kate	   Tester	           45	  55-34566																					
+4       Martin	   Tester	           678	  55-66899	
 
 CREATE TABLE Employees (
             empId serial not NULL,
@@ -21,11 +21,11 @@ VALUES (1, 'Leonid', 'Developer', '123','55-89076'),
 (4, 'Martin', 'Tester', '678','55-66899');																																			
 																																																	
 Works 																									
-workId	employeeName	roleEmployee	projectName	workload 		
-1	Anna	                 Tester	                 Deposit	                  40																					
-2	Leonid	                 Developer	                 Credits	                  50																					
-3	Anna	                 Team Lead	                 Insurance	                  20																					
-4	Martin	                 Tester	                 Credits	                  100
+workId	employeeName	roleEmployee	projectName	   workload 		
+1	     Anna	         Tester	        Deposit	       40																					
+2	     Leonid	         Developer	    Credits	       50																					
+3	     Anna	         Team Lead	    Insurance	   20																					
+4	     Martin	         Tester	        Credits	       100
 
 CREATE TABLE Works (
            workId serial not null,
@@ -43,10 +43,10 @@ VALUES (1, 'Anna', 'Tester', 'Deposit', 40),
 																																																	
 Projects																									
 projectId	projectName	productOwner	duration 			
-1	Business	                  Autoline	                 5																						
-2	Credits	                  Bank	                 2																						
-3	Insurance	                  Life	                10																						
-4	Deposit	                  External	                14
+1	        Business	Autoline	     5																						
+2	        Credits	    Bank	         2																						
+3	        Insurance	Life	         10																						
+4	        Deposit	    External	     14
 
 CREATE TABLE Projects (
            projectId serial not NULL,
