@@ -3,8 +3,8 @@ Employees
 empId employeeName   roleEmployess      place	       phone 		
 1     Leonid	      Developer         123            55-89076																					
 2      Mark	      Designer	         566	        NULL																					
-3      Kate	      Tester	          45	        55-34566																					
-4      Martin	      Tester	          678	        55-66899	
+3      Kate	      Tester	         45	        55-34566																					
+4      Martin	      Tester	         678	        55-66899	
 
 CREATE TABLE Employees (
             empId serial not NULL,
