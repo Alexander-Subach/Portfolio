@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "06e82011-ec23-4c0c-b694-321497479b14",
-		"name": "DUMMAAPI",
+		"name": "DUMMYAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "32113766",
 		"_collection_link": "https://www.postman.com/mrsan4ez/workspace/my-workspace/collection/32113766-06e82011-ec23-4c0c-b694-321497479b14?action=share&source=collection_link&creator=32113766"
@@ -142,7 +142,7 @@
 			},
 			{
 				"key": "value",
-				"value": "6644d6418e80db44d8273fff",
+				"value": "*****************",
 				"type": "string"
 			},
 			{
