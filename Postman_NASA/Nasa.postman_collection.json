@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "d303c7d8-250d-41ad-8a09-0669b9635cc5",
+		"name": "Nasa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32113766"
+	},
+	"item": [
+		{
+			"name": "Querying by Earth date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Статус код 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Ответ от сервера успешен\", function () {\r",
+							"    pm.response.to.be.success;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Каждая photos имеет ключи id, sol, camera, img_src, earth_date, rover\", function () {\r",
+							"    pm.response.json().photos.forEach(function(photos) {\r",
+							"        pm.expect(photos).to.have.property('id');\r",
+							"        pm.expect(photos).to.have.property('sol');\r",
+							"        pm.expect(photos).to.have.property('img_src');\r",
+							"        pm.expect(photos).to.have.property('earth_date');\r",
+							"        pm.expect(photos).to.have.property('rover');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Каждая  camera  в фотографии имеет ключи id, name, rover_id, full_name\", function () {\r",
+							"    var photos = pm.response.json().photos;\r",
+							"    photos.forEach(function(photo) {\r",
+							"        var camera = photo.camera;\r",
+							"        pm.expect(camera).to.have.property('id');\r",
+							"        pm.expect(camera).to.have.property('name');\r",
+							"        pm.expect(camera).to.have.property('rover_id');\r",
+							"        pm.expect(camera).to.have.property('full_name');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Ответ от сервера имеет тип данных массив\", function () {\r",
+							"    pm.expect(pm.response.json().photos).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Значение Earth date из параметра запроса равно значению Earth date из тела ответа сервера\", function () {\r",
+							"    let queryParams = pm.request.url.query.toObject();\r",
+							"    let earthDateFromQuery = queryParams['earth_date'];\r",
+							"    let responseData = pm.response.json();\r",
+							"    let earthDateFromResponse = responseData.photos[3].earth_date;\r",
+							"    pm.expect(earthDateFromQuery).to.equal(earthDateFromResponse);\r",
+							"    console.log(\"Earth date from query: \" + earthDateFromQuery);\r",
+							"    console.log(\"Earth date from response: \" + earthDateFromResponse);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "DEMO_KEY",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2020-02-20",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"mars-photos",
+						"api",
+						"v1",
+						"rovers",
+						"curiosity",
+						"photos"
+					],
+					"query": [
+						{
+							"key": "earth_date",
+							"value": "2020-02-20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Querying by Earth date Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"let responseData = pm.response.json(); \r",
+							"let photoId = responseData.photos[1].id; \r",
+							"pm.collectionVariables.set(\"photoId\", photoId); \r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "DEMO_KEY",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2022-01-21",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"mars-photos",
+						"api",
+						"v1",
+						"rovers",
+						"curiosity",
+						"photos"
+					],
+					"query": [
+						{
+							"key": "earth_date",
+							"value": "2022-01-21"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "DEMO_KEY",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api_key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "photoId",
+			"value": ""
+		}
+	]
+}
