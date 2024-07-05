@@ -2,13 +2,13 @@
 Структура таблиц и значения полей указаны ниже:
 																								
 Таблица - user																							
-id            user_name	level_id	skill																		
-1	Anton	1	900000																					
-2	Denis	3	4000																					
-3	Petr	2	50000																					
-4	Andrey	4	20																					
-5	Olga	1	600000																					
-6	Anna	1	1600000																					
+id     user_name	level_id	skill																		
+1	Anton	          1	        900000																					
+2	Denis	          3	        4000																					
+3	Petr	          2	        50000																					
+4	Andrey	          4	        20																					
+5	Olga	          1	        600000																					
+6	Anna	          1	        1600000																					
 
 CREATE TABLE user (
     id INT PRIMARY KEY,
@@ -17,7 +17,6 @@ CREATE TABLE user (
     skill INT,
     FOREIGN KEY (level_id) REFERENCES level(id)
 );
-
 INSERT INTO user (id, user_name, level_id, skill) VALUES
 (1, 'Anton', 1, 900000),
 (2, 'Denis', 3, 4000),
@@ -37,7 +36,6 @@ CREATE TABLE level (
     id INT PRIMARY KEY,
     level_name VARCHAR(255)
 );
-
 INSERT INTO level (id, level_name) VALUES
 (1, 'admin'),
 (2, 'power_user'),
